@@ -6,11 +6,17 @@ function Character(props) {
     const [planetData, setPlanetData] = useState(null);
     
       
-    useEffect(() => {
-        if (showHomeworld) {
-          fetchPlanetData();
-        }
-      }, [showHomeworld]);
+    const fetchPlanetData = async () => {
+            const response = await fetch(props.data.homeworld);
+            const data = await response.json();
+            setPlanetData(data);
+        };
+    
+        useEffect(() => {
+            if (showHomeworld) {
+                fetchPlanetData();
+            }
+        }, [showHomeworld]);
     
       const toggleHomeworld = () => {
         setShowHomeworld(!showHomeworld);
