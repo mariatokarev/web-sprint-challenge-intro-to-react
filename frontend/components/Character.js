@@ -1,33 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React, {} from 'react';
 
 
 function Character(props) {
-    const [showHomeworld, setShowHomeworld] = useState(false);
-    const [planetData, setPlanetData] = useState(null);
-    
-   
+    const { character, planet, onCharacterClick, isPlanetVisible } = props;
   
-    
-    useEffect(() => {
-      
-
-      return (
-        <div className="character-card">
-      <h3
-        onClick={toggleHomeworld} className={`character-name ${showHomeworld ? 'active' : ''}`}
-       
-      >
-        {props.data.name}
-      </h3>
-      <p>
-        Planet:
-        <span className={`character-planet ${planetData ? '' : 'Loading...'}`}>
-           
-        </span>
-      </p>
-    </div>
-  );
-      }
+    return (
+      <div className="character-card" onClick={() => onCharacterClick(character)}>
+        <h3 className='character-name'>{character.name}</h3>
+        {isPlanetVisible && (
+          <p>
+            Planet:
+            <span className='character-planet'>{planet.name}</span>
+          </p>
+        )}
+      </div>
+    );
+  }
   
-    
-export default Character
+  export default Character;
