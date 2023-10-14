@@ -5,10 +5,9 @@ function Character(props) {
    const [isSelected, setIsSelected] = useState(false);
 
    const handleCardClick = () => {
-      if (!isSelected) {
-        setIsSelected(true);
-        onCharacterClick(character);
-      }
+     
+      setIsSelected(!isSelected);
+    
     };
  
    return (
@@ -16,7 +15,7 @@ function Character(props) {
        className={`character-cards ${isSelected ? 'selected' : ''}`}
        onClick={handleCardClick}
      >
-       <h3 className='character-name'>{character.name}</h3>
+       <h3 className='character-name'>{Character.name}</h3>
       
        {isSelected && (
          <p>
@@ -34,7 +33,7 @@ function Character(props) {
  
  
  
- Regenerate
+ 
  
   
   export default Character;
