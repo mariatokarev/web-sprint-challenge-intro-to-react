@@ -8,7 +8,7 @@ import Character from './Character'
  function App() {
   const [peopleData, setPeopleData] = useState([]);
   const [ planetsData, setPlanetsData] = useState([]);
-  const [selectedCharacter, setSelectedCharacter] = useState(null);
+  
 
 
   useEffect(() => {
@@ -25,14 +25,10 @@ import Character from './Character'
     fetchData();
   }, []);
 
-  const handleCharacterClick = (character) => {
-    if (selectedCharacter === character) {
-      setSelectedCharacter(null);
-    } else {
-      setSelectedCharacter(character);
-    }
+  const handleCardClick = () => {
+    setIsSelected(true); 
+    onCharacterClick(character);
   };
-
   return (
     <div>
       <h2>Star Wars Characters</h2>
@@ -42,8 +38,7 @@ import Character from './Character'
           key={character.id}
           character={character}
           planet={planetsData.find((planet) => planet.id === character.homeworld)}
-          onCharacterClick={handleCharacterClick}
-          isPlanetVisible={selectedCharacter === character}
+          isCharacterSelected={selectedCharacters.includes(character)}
         />
       ))}
     </div>
