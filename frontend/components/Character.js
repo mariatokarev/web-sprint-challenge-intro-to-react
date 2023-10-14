@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React, {useState} from 'react';
 
 
 function Character(props) {
@@ -9,31 +9,25 @@ function Character(props) {
       setIsSelected(!isSelected);
     
     };
- 
+ console.log(props)
    return (
      <div
-       className={`character-cards ${isSelected ? 'selected' : ''}`}
+       className={`character-card ${isSelected ? 'selected' : ''}`}
        onClick={handleCardClick}
      >
-       <h3 className='character-name'>{Character.name}</h3>
+       <h3 className='character-name'>{props.character.name}</h3>
       
        {isSelected && (
          <p>
            Planet:
-           <span className='character-planet'>{planet.name}</span>
+           <span className='character-planet'>{props.planet.name}</span>
          </p>
        )}
      </div>
    );
  }
 
- 
- 
- 
- 
- 
- 
- 
- 
+    
   
-  export default Character;
+    
+export default Character
