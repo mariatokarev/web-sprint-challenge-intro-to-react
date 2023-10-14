@@ -25,10 +25,7 @@ import Character from './Character'
     fetchData();
   }, []);
 
-  const handleCardClick = () => {
-    setIsSelected(true); 
-    onCharacterClick(character);
-  };
+ 
   return (
     <div>
       <h2>Star Wars Characters</h2>
@@ -38,14 +35,14 @@ import Character from './Character'
           key={character.id}
           character={character}
           planet={planetsData.find((planet) => planet.id === character.homeworld)}
-          isCharacterSelected={selectedCharacters.includes(character)}
+          // isCharacterSelected={selectedCharacters.includes(character)}
         />
       ))}
     </div>
   );
 }
-
-export default App;
+  
+export default App
 
 // ❗ DO NOT CHANGE THE CODE  BELOW
 if (typeof module !== 'undefined' && module.exports) module.exports = App
